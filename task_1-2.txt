@@ -1,0 +1,40 @@
+mts@mts-Aspire-A111-31:~$ cd vscode/java/ControlWork
+bash: cd: vscode/java/ControlWork: Нет такого файла или каталога
+mts@mts-Aspire-A111-31:~$ cd vscode/java/ControlWork2
+mts@mts-Aspire-A111-31:~/vscode/java/ControlWork2$ cat Pets.txt
+cat: Pets.txt: Нет такого файла или каталога
+mts@mts-Aspire-A111-31:~/vscode/java/ControlWork2$ cat >Pets.txt
+Dog
+Cat
+Hamster
+mts@mts-Aspire-A111-31:~/vscode/java/ControlWork2$ cat Pets.txt
+Dog
+Cat
+Hamster
+mts@mts-Aspire-A111-31:~/vscode/java/ControlWork2$ cat >Pack_animals.txt
+Horse
+Camel
+Donkey
+mts@mts-Aspire-A111-31:~/vscode/java/ControlWork2$ cat Pack_animals.txt
+Horse
+Camel
+Donkey
+mts@mts-Aspire-A111-31:~/vscode/java/ControlWork2$ cat Pack_animals.txt >> Pets.txt
+mts@mts-Aspire-A111-31:~/vscode/java/ControlWork2$ cat Pets.txt
+Dog
+Cat
+Hamster
+Horse
+Camel
+Donkey
+mts@mts-Aspire-A111-31:~/vscode/java/ControlWork2$ mv Pets.txt HumanFriends.txt
+mts@mts-Aspire-A111-31:~/vscode/java/ControlWork2$ ls
+HumanFriends.txt  Pack_animals.txt
+mts@mts-Aspire-A111-31:~/vscode/java/ControlWork2$ rm -f Pack_animals.txt 
+mts@mts-Aspire-A111-31:~/vscode/java/ControlWork2$ mkdir Animals
+mts@mts-Aspire-A111-31:~/vscode/java/ControlWork2$ mv HumanFriends.txt /Animals/
+mv: невозможно переместить 'HumanFriends.txt' в '/Animals/': Это не каталог
+mts@mts-Aspire-A111-31:~/vscode/java/ControlWork2$ mv HumanFriends.txt Animals/
+mts@mts-Aspire-A111-31:~/vscode/java/ControlWork2$ 
+
+
