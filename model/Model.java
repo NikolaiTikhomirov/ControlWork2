@@ -23,25 +23,25 @@ public class Model {
         animalList = (AnimalList<String, Animal>) writable.read(animalListPath);
     }
 
-    public void addAnimal(Integer animalClass, String name, LocalDate date, Type type, ArrayList<String> commands) {
+    public void addAnimal(Integer animalClass, String name, LocalDate date, ArrayList<String> commands) {
         Animal animal = null;
         if (animalClass == 1){
-            animal = new Dog(name, date, type, commands);
+            animal = new Dog(name, date, commands);
         }
         if (animalClass == 2){
-            animal = new Cat(name, date, type, commands);
+            animal = new Cat(name, date, commands);
         }
         if (animalClass == 3){
-            animal = new Hamster(name, date, type, commands);
+            animal = new Hamster(name, date, commands);
         }
         if (animalClass == 4){
-            animal = new Horse(name, date, type, commands);
+            animal = new Horse(name, date, commands);
         }
         if (animalClass == 5){
-            animal = new Camel(name, date, type, commands);
+            animal = new Camel(name, date, commands);
         }
         if (animalClass == 6){
-            animal = new Donkey(name, date, type, commands);
+            animal = new Donkey(name, date, commands);
         }
         
         animalList.addAnimal(animal);

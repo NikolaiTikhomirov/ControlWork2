@@ -5,10 +5,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
-import model.Type;
 import presenter.Presenter;
 import view.exceptions.UserInterDateException;
-import view.exceptions.UserInterTypeException;
 import view.exceptions.UserInterNameException;
 import view.exceptions.UserInterClassException;
 import view.exceptions.UserInterCommandException;
@@ -89,22 +87,13 @@ public class Console implements View{
                 if (date == null) throw new UserInterDateException("Неверный формат даты.");
 
 
-                System.out.println("Введите вид питомца в формате pet/pack_animal");
-                String typeTemp = scanner.nextLine();
-                Type type = null;
-                if (typeTemp.equals("pet") || typeTemp.equals("pack_animal")){
-                    type = Type.valueOf(typeTemp);
-                }
-                else {throw new UserInterTypeException("Неизвестный вид животного");}
-
-
                 System.out.println("Введите команды питомца через пробел");
                 String commandsTemp = scanner.nextLine();
                 ArrayList<String> commands = new ArrayList<String>(Arrays.asList(commandsTemp.split(" ")));
                 if (commandsTemp == "") throw new UserInterCommandException("Список команд пуст");
 
 
-                presenter.addAnimal(animalClass, name, date, type, commands);
+                presenter.addAnimal(animalClass, name, date, commands);
             }
 
             catch (UserInterClassException e){
@@ -122,10 +111,6 @@ public class Console implements View{
             }
             catch(UserInterCommandException e){
                 System.out.println("Список команд пуст\n");
-                continue root;
-            }
-            catch(UserInterTypeException e){
-                System.out.println("Неверно указан вид питомца\n");
                 continue root;
             }
             catch (Exception e) {
