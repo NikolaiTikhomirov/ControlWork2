@@ -175,7 +175,7 @@ public class Console implements View{
     }
 
     @Override
-    public void ChangeAnimal() {
+    public void changeAnimal() {
         Boolean work = true;
         root: while (work) {
             try {
@@ -198,7 +198,7 @@ public class Console implements View{
     }
 
     @Override
-    public void ChangeName(String name) {
+    public void changeName(String name) {
         Boolean work = true;
         root: while (work) {
             try {
@@ -216,17 +216,17 @@ public class Console implements View{
     }
 
     @Override
-    public void ChangeBirth() {
+    public void changeBirth() {
         presenter.ChangeBirth();
     }
 
     @Override
-    public void ChangeCommands() {
+    public void changeCommands() {
         presenter.ChangeCommands();
     }
 
     @Override
-    public void AddCommands() {
+    public void addCommands() {
         presenter.AddCommands();
     }
 

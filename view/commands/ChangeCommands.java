@@ -16,6 +16,6 @@ public class ChangeCommands implements Command {
 
     @Override
     public void execute() {
-        view.addAnimal();
+        view.changeCommands();
     }
 }

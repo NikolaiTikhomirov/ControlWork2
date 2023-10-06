@@ -16,6 +16,6 @@ public class AddCommands implements Command {
 
     @Override
     public void execute() {
-        view.addAnimal();
+        view.addCommands();
     }
 }

@@ -2,7 +2,6 @@ package view;
 
 import view.commands.AddAnimal;
 import view.commands.ChangeAnimal;
-import view.commands.ChangeCommands;
 import view.commands.Command;
 import view.commands.Finish;
 import view.commands.GetAnimalList;

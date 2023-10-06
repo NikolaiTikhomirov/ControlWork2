@@ -16,6 +16,6 @@ public class ChangeBirth implements Command {
 
     @Override
     public void execute() {
-        view.addAnimal();
+        view.changeBirth();
     }
 }

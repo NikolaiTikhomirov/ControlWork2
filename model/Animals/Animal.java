@@ -76,7 +76,7 @@ public class Animal implements Serializable, AnimalListInterface{
         if (date != null) d = String.valueOf(this.getDate());
         if (type != null) t = String.valueOf(this.getType());
         if (commands != null) c = String.valueOf(this.getCommands());
-        return "Вид животного: " + a + "Имя: " + n + " Дата рождения: " + d + " класс животного: " + t + " комманды: " + c;
+        return "Вид животного: " + a + " Имя: " + n + " Дата рождения: " + d + " класс животного: " + t + " комманды: " + c;
     }
 
     public String getInfo() {

@@ -8,11 +8,11 @@ public interface View {
     void setPresenter(Presenter presenter);
     void addAnimal();
     void getAnimalList();
-    void ChangeAnimal();
-    void ChangeName(String name);
-    void ChangeBirth();
-    void ChangeCommands();
-    void AddCommands();
+    void changeAnimal();
+    void changeName(String name);
+    void changeBirth();
+    void changeCommands();
+    void addCommands();
     void saveChanges();
     void finish();
 }
