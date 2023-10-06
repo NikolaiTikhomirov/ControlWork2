@@ -6,7 +6,9 @@ import java.util.ArrayList;
 
 public class Camel extends Pack_animal{
 
+    static String animalKind = "Верблюд";
+
     public Camel(String name, LocalDate date, ArrayList<String> commands){
-        super(name, date, commands);
+        super(animalKind, name, date, commands);
     }
 }

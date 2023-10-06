@@ -44,6 +44,23 @@ public class AnimalList<String, T extends AnimalListInterface> implements Serial
         animalList.remove(name);
     }
 
+    public void ChangeName(String name, java.lang.String newName) {
+        Animal animal = animalList.get(name);
+        animal.setName(newName);
+    }
+
+    public void ChangeBirth() {
+        // animalList.ChangeBirth();
+    }
+
+    public void ChangeCommands() {
+        // animalList.ChangeCommands();
+    }
+
+    public void AddCommands() {
+        // animalList.AddCommands();
+    }
+
     public Integer size(){
         return animalList.size();
     }

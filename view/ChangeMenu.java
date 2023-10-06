@@ -1,8 +1,10 @@
 package view;
 
 import view.commands.AddAnimal;
-import view.commands.ChangeAnimal;
+import view.commands.AddCommands;
+import view.commands.ChangeBirth;
 import view.commands.ChangeCommands;
+import view.commands.ChangeName;
 import view.commands.Command;
 import view.commands.Finish;
 import view.commands.GetAnimalList;
@@ -11,16 +13,17 @@ import view.commands.SaveChanges;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainMenu {
+public class ChangeMenu {
     private List<Command> commandList;
     private View view;
 
-    public MainMenu(View view) {
+    public ChangeMenu(View view) {
         this.view = view;
         commandList = new ArrayList<>();
-        commandList.add(new AddAnimal(view));
-        commandList.add(new GetAnimalList(view));
-        commandList.add(new ChangeAnimal(view));
+        commandList.add(new ChangeName(view));
+        commandList.add(new ChangeBirth(view));
+        commandList.add(new ChangeCommands(view));
+        commandList.add(new AddCommands(view));
         commandList.add(new SaveChanges(view));
         commandList.add(new Finish(view));
     }

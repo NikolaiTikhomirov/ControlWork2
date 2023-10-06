@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
+import model.Animals.Animal;
 import presenter.Presenter;
 import view.exceptions.UserInterDateException;
 import view.exceptions.UserInterNameException;
@@ -18,6 +19,7 @@ public class Console implements View{
     private Scanner scanner;
     private Boolean work;
     private MainMenu mainMenu;
+    private ChangeMenu changeMenu;
 
     
     public Console(){
@@ -52,6 +54,15 @@ public class Console implements View{
         this.presenter = presenter;
     }
 
+    private void printAnimalsKindList(){
+        System.out.println("1. Собака");
+        System.out.println("2. Кошка");
+        System.out.println("3. Хомяк");
+        System.out.println("4. Лошадь");
+        System.out.println("5. Верблюд");
+        System.out.println("6. Осел");
+    }
+
     @Override
     public void addAnimal(){
         boolean addWork;
@@ -60,12 +71,7 @@ public class Console implements View{
             try {
                 Integer animalClass = null;
                 System.out.println("Выберите, какого питомца вы хотите добавить");
-                System.out.println("1. Собака");
-                System.out.println("2. Кошка");
-                System.out.println("3. Хомяк");
-                System.out.println("4. Лошадь");
-                System.out.println("5. Верблюд");
-                System.out.println("6. Осел");
+                printAnimalsKindList();
                 try {
                     animalClass = Integer.parseInt(scanner.nextLine());
                 } catch (Exception e){}
@@ -166,6 +172,62 @@ public class Console implements View{
     @Override
     public void saveChanges() {
         presenter.saveChanges();
+    }
+
+    @Override
+    public void ChangeAnimal() {
+        Boolean work = true;
+        root: while (work) {
+            try {
+                getAnimalList();
+                System.out.println("Введите имя питомца, чьи данные вы хотите изменить");
+                String name = scanner.nextLine();
+                Animal animal = presenter.getAnimal(name);
+                if (animal == null) throw new UserInterNameException("Питомец не найден", name);
+                System.out.println(animal.toString());
+                System.out.println("Какие данные вы хотите изменить?");
+                changeMenu = new ChangeMenu(this);
+
+                // presenter.ChangeAnimal();
+                work = false;
+            } catch (UserInterNameException e) {
+                System.out.println("Питомец не найден - " + e.getData() + "\n");
+                continue root;
+            }
+        }
+    }
+
+    @Override
+    public void ChangeName(String name) {
+        Boolean work = true;
+        root: while (work) {
+            try {
+                System.out.println("Введите новое имя питомца");
+                String newName = scanner.nextLine();
+                if (newName.length() < 2)
+                    throw new UserInterNameException("Некорректное имя питомца.", newName);
+                presenter.ChangeName(name, newName);
+                work = false;
+            } catch (UserInterNameException e) {
+                System.out.println("Некорректное имя - " + e.getData() + "\n");
+                continue root;
+            }
+        }
+    }
+
+    @Override
+    public void ChangeBirth() {
+        presenter.ChangeBirth();
+    }
+
+    @Override
+    public void ChangeCommands() {
+        presenter.ChangeCommands();
+    }
+
+    @Override
+    public void AddCommands() {
+        presenter.AddCommands();
     }
 
 }

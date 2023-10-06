@@ -51,8 +51,31 @@ public class Model {
         return animalList.getInfo();
     }
 
+    public Animal getAnimal(String name){
+        return animalList.getAnimal(name);
+    }
+
     public void saveChanges() {
         writable.save(animalList, animalListPath);
     }
 
+    public void ChangeAnimal() {
+        // model.ChangeAnimal();
+    }
+
+    public void ChangeName(String name, String newName) {
+        animalList.ChangeName(name, newName);
+    }
+
+    public void ChangeBirth() {
+        animalList.ChangeBirth();
+    }
+
+    public void ChangeCommands() {
+        animalList.ChangeCommands();
+    }
+
+    public void AddCommands() {
+        animalList.AddCommands();
+    }
 }

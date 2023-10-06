@@ -9,7 +9,7 @@ public class Pack_animal extends Animal{
 
     static Type type = Type.valueOf("pack_animal");
     
-    public Pack_animal(String name, LocalDate date, ArrayList<String> commands) {
-        super(name, date, type, commands);
+    public Pack_animal(String animalKind, String name, LocalDate date, ArrayList<String> commands) {
+        super(animalKind, name, date, type, commands);
     }
 }

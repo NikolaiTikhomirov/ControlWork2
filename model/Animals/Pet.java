@@ -9,7 +9,7 @@ public class Pet extends Animal{
 
     static Type type = Type.valueOf("pet");
     
-    public Pet(String name, LocalDate date, ArrayList<String> commands) {
-        super(name, date, type, commands);
+    public Pet(String animalKind, String name, LocalDate date, ArrayList<String> commands) {
+        super(animalKind, name, date, type, commands);
     }
 }

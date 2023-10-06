@@ -6,7 +6,9 @@ import java.util.ArrayList;
 
 public class Cat extends Pet {
 
+    static String animalKind = "Кот";
+
     public Cat(String name, LocalDate date, ArrayList<String> commands){
-        super(name, date, commands);
+        super(animalKind, name, date, commands);
     }
 }
