@@ -36,7 +36,7 @@ public class Animal implements Serializable, AnimalListInterface{
     public String getCommands(){
         String res = "";
         for (String str : commands) {
-            res += str;
+            res += str + " ";
         }
         return res;
     }
