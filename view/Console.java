@@ -18,8 +18,8 @@ public class Console implements View{
     private Presenter presenter;
     private Scanner scanner;
     private Boolean work;
-    private MainMenu mainMenu;
-    private ChangeMenu changeMenu;
+    private Menu mainMenu;
+    private Menu changeMenu;
 
     
     public Console(){
@@ -37,8 +37,8 @@ public class Console implements View{
     public void start() {
         System.out.println("Доброго времени суток");;
         while (work) {
-            printMenu();
-            execute();
+            printMenu(mainMenu);
+            execute(mainMenu);
         }
     }
     
@@ -133,22 +133,32 @@ public class Console implements View{
         presenter.getAnimalList();
     }
 
-    private void printMenu(){
-        System.out.println(mainMenu.print());
+    private void printMenu(Menu menu){
+        System.out.println(menu.print());
     }
 
-    private void execute(){
+    private void execute(Menu menu){
         String line = scanner.nextLine();
         if (checkTextForInt(line)){
             int numCommand = Integer.parseInt(line);
-            if (checkCommand(numCommand)){
-                mainMenu.execute(numCommand);
+            if (checkCommand(numCommand, menu)){
+                menu.execute(numCommand);
             }
         }
     }
 
-    private boolean checkCommand(int numCommand){
-        if (numCommand <= mainMenu.size()){
+    private void executeChange(Menu menu, String name){
+        String line = scanner.nextLine();
+        if (checkTextForInt(line)){
+            int numCommand = Integer.parseInt(line);
+            if (checkCommand(numCommand, menu)){
+                menu.executeChange(numCommand, name);
+            }
+        }
+    }
+
+    private boolean checkCommand(int numCommand, Menu menu){
+        if (numCommand <= menu.size()){
             return true;
         } else {
             inputError();
@@ -187,8 +197,8 @@ public class Console implements View{
                 System.out.println(animal.toString());
                 System.out.println("Какие данные вы хотите изменить?");
                 changeMenu = new ChangeMenu(this);
-
-                // presenter.ChangeAnimal();
+                printMenu(changeMenu);
+                executeChange(changeMenu, name);
                 work = false;
             } catch (UserInterNameException e) {
                 System.out.println("Питомец не найден - " + e.getData() + "\n");

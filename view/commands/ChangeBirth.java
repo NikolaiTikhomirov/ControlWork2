@@ -18,4 +18,8 @@ public class ChangeBirth implements Command {
     public void execute() {
         view.changeBirth();
     }
+
+    @Override
+    public void executeChange(String name) {
+    }
 }

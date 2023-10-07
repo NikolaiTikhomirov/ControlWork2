@@ -11,11 +11,15 @@ public class AddCommands implements Command {
 
     @Override
     public String getDescription() {
-        return "Добавить питомцу команд команд";
+        return "Добавить питомцу команд";
     }
 
     @Override
     public void execute() {
         view.addCommands();
+    }
+
+    @Override
+    public void executeChange(String name) {
     }
 }

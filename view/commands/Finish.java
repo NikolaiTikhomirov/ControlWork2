@@ -18,4 +18,8 @@ public class Finish implements Command {
     public void execute() {
         view.finish();
     }
+
+    @Override
+    public void executeChange(String name) {
+    }
 }

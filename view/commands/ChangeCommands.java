@@ -11,11 +11,15 @@ public class ChangeCommands implements Command {
 
     @Override
     public String getDescription() {
-        return "Переписать спикой команд";
+        return "Переписать список команд";
     }
 
     @Override
     public void execute() {
         view.changeCommands();
+    }
+
+    @Override
+    public void executeChange(String name) {
     }
 }

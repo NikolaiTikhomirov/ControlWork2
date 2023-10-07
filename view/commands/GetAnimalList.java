@@ -18,4 +18,8 @@ public class GetAnimalList implements Command {
     public void execute() {
         view.getAnimalList();
     }
+
+    @Override
+    public void executeChange(String name) {
+    }
 }

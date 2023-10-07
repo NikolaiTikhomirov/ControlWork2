@@ -16,6 +16,10 @@ public class ChangeName implements Command {
 
     @Override
     public void execute() {
-        view.changeName(null);
+    }
+
+    @Override
+    public void executeChange(String name) {
+        view.changeName(name);
     }
 }

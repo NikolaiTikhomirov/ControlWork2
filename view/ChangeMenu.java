@@ -1,19 +1,17 @@
 package view;
 
-import view.commands.AddAnimal;
 import view.commands.AddCommands;
 import view.commands.ChangeBirth;
 import view.commands.ChangeCommands;
 import view.commands.ChangeName;
 import view.commands.Command;
 import view.commands.Finish;
-import view.commands.GetAnimalList;
 import view.commands.SaveChanges;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ChangeMenu {
+public class ChangeMenu implements Menu{
     private List<Command> commandList;
     private View view;
 
@@ -24,8 +22,8 @@ public class ChangeMenu {
         commandList.add(new ChangeBirth(view));
         commandList.add(new ChangeCommands(view));
         commandList.add(new AddCommands(view));
-        commandList.add(new SaveChanges(view));
-        commandList.add(new Finish(view));
+        // commandList.add(new SaveChanges(view));
+        // commandList.add(new Finish(view));
     }
 
     public String print(){
@@ -40,11 +38,15 @@ public class ChangeMenu {
         return stringBuilder.toString();
     }
 
-    public void execute(int numCommand){
-        commandList.get(numCommand - 1).execute();
+    public void executeChange(int numCommand, String name){
+        (commandList.get(numCommand - 1)).executeChange(name);
     }
 
     public int size(){
         return commandList.size();
+    }
+
+    @Override
+    public void execute(int numCommand) {
     }
 }

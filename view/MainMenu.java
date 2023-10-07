@@ -10,7 +10,7 @@ import view.commands.SaveChanges;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainMenu {
+public class MainMenu implements Menu{
     private List<Command> commandList;
     private View view;
 
@@ -42,5 +42,9 @@ public class MainMenu {
 
     public int size(){
         return commandList.size();
+    }
+
+    @Override
+    public void executeChange(int numCommand, String name) {
     }
 }

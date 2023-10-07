@@ -18,4 +18,8 @@ public class ChangeAnimal implements Command {
     public void execute() {
         view.changeAnimal();
     }
+
+    @Override
+    public void executeChange(String name) {
+    }
 }

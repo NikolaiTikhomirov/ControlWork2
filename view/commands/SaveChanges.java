@@ -18,5 +18,9 @@ public class SaveChanges implements Command {
     public void execute() {
         view.saveChanges();
     }
+
+    @Override
+    public void executeChange(String name) {
+    }
     
 }
