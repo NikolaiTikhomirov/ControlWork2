@@ -16,10 +16,10 @@ public class ChangeBirth implements Command {
 
     @Override
     public void execute() {
-        view.changeBirth();
     }
 
     @Override
     public void executeChange(String name) {
+        view.changeBirth(name);
     }
 }

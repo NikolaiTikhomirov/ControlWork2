@@ -1,6 +1,8 @@
 package model;
 
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -49,16 +51,19 @@ public class AnimalList<String, T extends AnimalListInterface> implements Serial
         animal.setName(newName);
     }
 
-    public void ChangeBirth() {
-        // animalList.ChangeBirth();
+    public void ChangeBirth(String name, LocalDate date) {
+        Animal animal = animalList.get(name);
+        animal.setDate(date);
     }
 
-    public void ChangeCommands() {
-        // animalList.ChangeCommands();
+    public void ChangeCommands(String name, ArrayList<java.lang.String> commands) {
+        Animal animal = animalList.get(name);
+        animal.setCommands(commands);
     }
 
-    public void AddCommands() {
-        // animalList.AddCommands();
+    public void AddCommands(String name, ArrayList<java.lang.String> commands) {
+        Animal animal = animalList.get(name);
+        animal.addCommands(commands);
     }
 
     public Integer size(){

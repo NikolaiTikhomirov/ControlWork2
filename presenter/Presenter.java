@@ -41,15 +41,15 @@ public class Presenter {
         model.ChangeName(name, newName);
     }
 
-    public void ChangeBirth() {
-        model.ChangeBirth();
+    public void ChangeBirth(String name, LocalDate date) {
+        model.ChangeBirth(name, date);
     }
 
-    public void ChangeCommands() {
-        model.ChangeCommands();
+    public void ChangeCommands(String name, ArrayList<String> commands) {
+        model.ChangeCommands(name, commands);
     }
 
-    public void AddCommands() {
-        model.AddCommands();
+    public void AddCommands(String name, ArrayList<String> commands) {
+        model.AddCommands(name, commands);
     }
 }

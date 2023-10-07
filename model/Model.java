@@ -67,15 +67,15 @@ public class Model {
         animalList.ChangeName(name, newName);
     }
 
-    public void ChangeBirth() {
-        animalList.ChangeBirth();
+    public void ChangeBirth(String name, LocalDate date) {
+        animalList.ChangeBirth(name, date);
     }
 
-    public void ChangeCommands() {
-        animalList.ChangeCommands();
+    public void ChangeCommands(String name, ArrayList<String> commands) {
+        animalList.ChangeCommands(name, commands);
     }
 
-    public void AddCommands() {
-        animalList.AddCommands();
+    public void AddCommands(String name, ArrayList<String> commands) {
+        animalList.AddCommands(name, commands);
     }
 }

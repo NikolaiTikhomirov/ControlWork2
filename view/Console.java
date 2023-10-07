@@ -226,18 +226,59 @@ public class Console implements View{
     }
 
     @Override
-    public void changeBirth() {
-        presenter.ChangeBirth();
+    public void changeBirth(String name) {
+        Boolean work = true;
+        root: while (work) {
+            try {
+                System.out.println("Введите новую дату рождения питомца в формате гггг-мм-дд");
+                LocalDate date = null;
+                try {
+                    date = LocalDate.parse(scanner.nextLine());
+                } catch (Exception e){}
+                if (date == null) throw new UserInterDateException("Неверный формат даты.");
+                presenter.ChangeBirth(name, date);
+                work = false;
+            } catch (UserInterDateException e) {
+                System.out.println("Неверный формат даты\n");
+                continue root;
+            }
+        }
     }
 
     @Override
-    public void changeCommands() {
-        presenter.ChangeCommands();
+    public void changeCommands(String name) {
+        Boolean work = true;
+        root: while (work) {
+            try {
+                System.out.println("Введите обновленный список команд питомца через пробел");
+                String commandsTemp = scanner.nextLine();
+                ArrayList<String> commands = new ArrayList<String>(Arrays.asList(commandsTemp.split(" ")));
+                if (commandsTemp == "") throw new UserInterCommandException("Список команд пуст");
+                presenter.ChangeCommands(name, commands);
+                work = false;
+            } catch (UserInterCommandException e) {
+                System.out.println("Список команд пуст\n");
+                continue root;
+            }
+        }
     }
 
     @Override
-    public void addCommands() {
-        presenter.AddCommands();
+    public void addCommands(String name) {
+        Boolean work = true;
+        root: while (work) {
+            try {
+                System.out.println("Введите команды, которые вы хотите добавить питомцу через пробел");
+                String commandsTemp = scanner.nextLine();
+                ArrayList<String> commands = new ArrayList<String>(Arrays.asList(commandsTemp.split(" ")));
+                if (commandsTemp == "") throw new UserInterCommandException("Список команд пуст");
+                presenter.AddCommands(name, commands);
+                work = false;
+            } catch (UserInterCommandException e) {
+                System.out.println("Список команд пуст\n");
+                continue root;
+            }
+        }
     }
 
 }

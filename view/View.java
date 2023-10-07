@@ -10,9 +10,9 @@ public interface View {
     void getAnimalList();
     void changeAnimal();
     void changeName(String name);
-    void changeBirth();
-    void changeCommands();
-    void addCommands();
+    void changeBirth(String name);
+    void changeCommands(String name);
+    void addCommands(String name);
     void saveChanges();
     void finish();
 }

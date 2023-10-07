@@ -16,10 +16,10 @@ public class AddCommands implements Command {
 
     @Override
     public void execute() {
-        view.addCommands();
     }
 
     @Override
     public void executeChange(String name) {
+        view.addCommands(name);
     }
 }

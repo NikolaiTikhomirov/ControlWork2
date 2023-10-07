@@ -60,7 +60,7 @@ public class Animal implements Serializable, AnimalListInterface{
     }
 
     public void addCommands(ArrayList<String> newCommands){
-        for (String str : commands) {
+        for (String str : newCommands) {
             this.commands.add(str);
         }
     }
