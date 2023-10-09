@@ -15,4 +15,5 @@ public interface View {
     void addCommands(String name);
     void saveChanges();
     void finish();
+    void getCounter();
 }

@@ -5,6 +5,7 @@ import view.commands.ChangeAnimal;
 import view.commands.Command;
 import view.commands.Finish;
 import view.commands.GetAnimalList;
+import view.commands.GetCounter;
 import view.commands.SaveChanges;
 
 import java.util.ArrayList;
@@ -19,6 +20,7 @@ public class MainMenu implements Menu{
         commandList = new ArrayList<>();
         commandList.add(new AddAnimal(view));
         commandList.add(new GetAnimalList(view));
+        commandList.add(new GetCounter(view));
         commandList.add(new ChangeAnimal(view));
         commandList.add(new SaveChanges(view));
         commandList.add(new Finish(view));

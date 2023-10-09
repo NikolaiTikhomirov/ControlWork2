@@ -22,7 +22,7 @@ public class Model {
         animalListPath = "model/animalList.txt";
         this.writable = writable;
         animalList = (AnimalList<String, Animal>) writable.read(animalListPath);
-        counterPath = "model/counterPath.txt";
+        counterPath = "model/counter.txt";
     }
 
     public void addAnimal(Integer animalClass, String name, LocalDate date, ArrayList<String> commands) {
@@ -49,9 +49,17 @@ public class Model {
         animalList.addAnimal(animal);
 
         try (Counter counter = (Counter) writable.read(counterPath)){
-            counter.addAnimal();
+            counter.add();
             counter.printCount();
             writable.save(counter, counterPath);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void getCounter(){
+        try (Counter counter = (Counter) writable.read(counterPath)){
+            counter.printCount();
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -9,12 +9,12 @@ public class Counter implements Serializable, Cloneable, AutoCloseable{
         counter = 0;
     }
     
-    public void addAnimal(){
+    public void add(){
         counter += 1;
     }
 
     public void printCount(){
-        System.out.println("Общее колличество животных = " + counter);
+        System.out.println("Общее колличество когда-то созданных питомцев = " + counter);
     }
 
     @Override

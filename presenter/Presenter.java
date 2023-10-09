@@ -52,4 +52,8 @@ public class Presenter {
     public void AddCommands(String name, ArrayList<String> commands) {
         model.AddCommands(name, commands);
     }
+
+    public void getCounter() {
+        model.getCounter();
+    }
 }

@@ -127,6 +127,11 @@ public class Console implements View{
             addWork = false;
         }
     }
+
+    @Override
+    public void getCounter(){
+        presenter.getCounter();
+    }
     
     @Override
     public void getAnimalList() {
