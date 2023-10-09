@@ -6,6 +6,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import model.AnimalList;
+import model.Counter;
 
 public class FileHandler implements Writable{
 
@@ -24,12 +25,18 @@ public class FileHandler implements Writable{
         try (ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream(filePath))){
             return objectInputStream.readObject();
         } catch (Exception e) {
-            Serializable list;
-            list = new AnimalList<>();
-            System.out.println("Создан новый список животных");
+            Serializable file;
+            if (filePath.contains("counter")){
+                file = new Counter();
+                System.out.println("Создан новый счетчик");
+            }
+            else{
+                file = new AnimalList<>();
+                System.out.println("Создан новый список животных");
+            }
             FileHandler writable = new FileHandler();
-            writable.save(list, filePath);
-            return list;
+            writable.save(file, filePath);
+            return file;
         }
     }
 }

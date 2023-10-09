@@ -16,11 +16,13 @@ public class Model {
     private AnimalList<String, Animal> animalList;
     private String animalListPath;
     private Writable writable;
+    private String counterPath;
 
     public Model(Writable writable) {
         animalListPath = "model/animalList.txt";
         this.writable = writable;
         animalList = (AnimalList<String, Animal>) writable.read(animalListPath);
+        counterPath = "model/counterPath.txt";
     }
 
     public void addAnimal(Integer animalClass, String name, LocalDate date, ArrayList<String> commands) {
@@ -45,6 +47,14 @@ public class Model {
         }
         
         animalList.addAnimal(animal);
+
+        try (Counter counter = (Counter) writable.read(counterPath)){
+            counter.addAnimal();
+            counter.printCount();
+            writable.save(counter, counterPath);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public String getAnimalList() {
